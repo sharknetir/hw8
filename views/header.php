@@ -72,16 +72,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">About MDB</a>
+                    <a class="nav-link waves-effect" href="" >Product</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/getting-started/" target="_blank">Free download</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">Free tutorials</a>
-                </li>
+
             </ul>
 
+            <!--center-->
+
+            <form class="form-inline md-form mr-auto mb-4" style="
+                      padding-top:  0px;
+                      padding-bottom:  0px;
+                      margin-top:  0px;
+                      margin-bottom: 0px !important;
+                      width: 50%;
+                      justify-content: center;
+                ">
+                <input class="form-control mr-sm-4" type="text" placeholder="Search" aria-label="Search" style="width: 70%;">
+                <button class="btn blue-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+            </form>
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item" style="padding-right: 10px">
@@ -91,21 +99,28 @@
                         <span class="clearfix d-none d-sm-inline-block"> Cart </span>
                     </a>
                 </li>
-                <li class="nav-item" style="padding-right: 10px">
-                    <a href="../admin/index" class="nav-link waves-effect  border rounded aqua-gradient" target="_blank">
-                        admin  <i class="fa fa-lock"></i>
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">1
+                        <i class="fa fa-envelope"></i>
                     </a>
                 </li>
-
-                <li class="nav-item" style="padding-right: 10px">
-                    <a href="../signup/index" class="nav-link waves-effect border rounded purple-gradient" target="_blank">
-                        sign-up  <i class="fa fa-user-plus"></i>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image">
                     </a>
-                </li>
-                <li class="nav-item" style="padding-right: 10px">
-                    <a href="../login/index" class="nav-link border rounded peach-gradient waves-effect">
-                        Sign-in  <i class="fa fa-sign-in"></i>
-                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+                        <a href="../admin/index" class="nav-link waves-effect">
+                            <i class="fa fa-lock"></i>   admin
+                        </a>
+                        <a href="../signup/index" class="nav-link waves-effect">
+                            <i class="fa fa-user-plus"></i>   sign-up
+                        </a>
+                        <a href="../login/index" class="nav-link  waves-effect">
+                            <i class="fa fa-sign-in"></i>   Sign-in
+                        </a>
+                    </div>
                 </li>
             </ul>
 

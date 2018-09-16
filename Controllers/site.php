@@ -1,6 +1,7 @@
 <?php 
 class site extends Controller{
 public $mymodel=null;
+public $view_products;
 public function __construct($model){
   parent::__construct();
   Session::init();
@@ -9,9 +10,9 @@ public function __construct($model){
 }
 
   public function index(){
-    //$myuser=$this->mymodel->search("'ali'");
-    //var_dump($this->mymodel->search("'ali'"));die();
-    $this->viewobject->render('site/index');
+    $pro=new Site_model();
+    $this->view_products=$pro->view();
+    $this->viewobject->render('site/index',$this->view_products,0);
 
      return;
    }
@@ -22,4 +23,7 @@ public function __construct($model){
    else
      echo "Error: \"Your Variable is not valid\"";
   }
+
+
+
 }

@@ -11,6 +11,11 @@ class Site_model extends Model{
 
  }
 
+ public function view(){
+     return $this->select('products',' * ',1,0);
+
+ }
+
 
 
 

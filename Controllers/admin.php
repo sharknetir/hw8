@@ -34,6 +34,10 @@ public $view_table;
         return;
 }
     }
+    public function products(){
+        $this->viewobject->render('admin/products',array(),1);
+
+    }
 
 
 }
