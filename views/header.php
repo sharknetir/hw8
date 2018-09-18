@@ -15,6 +15,8 @@
     <link href="<?=URL.URL_CSS ?>/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="<?=URL.URL_CSS ?>/style.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
     <style type="text/css">
         html,
@@ -42,6 +44,8 @@
             }
         }
     </style>
+
+
 </head>
 
 <body>
@@ -51,8 +55,9 @@
     <div class="container">
 
         <!-- Brand -->
+        <?php $name=Session::getSession('login'); $name=explode('@',$name)?>
         <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
-            <strong class="blue-text">Hi</strong>
+            <strong class="blue-text">Hi  <?=$name[0]?></strong>
         </a>
 
         <!-- Collapse -->
@@ -67,18 +72,24 @@
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="#">Home
+                    <a class="nav-link waves-effect" href="<?=URL?>/hw8/site/index">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="" >Product</a>
+                    <a class="nav-link waves-effect" href="<?=URL?>/hw8/site/index" >Product</a>
                 </li>
 
             </ul>
 
             <!--center-->
+            <?php
 
+                if (isset($_POST['add'])){
+                $qty=Session::getSession('qty');
+                $qty=(int)$_POST['add']+$qty;
+                Session::setSession('qty',$qty);
+            } ?>
             <form class="form-inline md-form mr-auto mb-4" style="
                       padding-top:  0px;
                       padding-bottom:  0px;
@@ -87,14 +98,29 @@
                       width: 50%;
                       justify-content: center;
                 ">
-                <input class="form-control mr-sm-4" type="text" placeholder="Search" aria-label="Search" style="width: 70%;">
-                <button class="btn blue-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+
+                <input id="search" class="form-control mr-sm-4" type="text" placeholder="Search" aria-label="Search" style="width: 70%;" >
+                <div id="result"></div>
+
+                <script>
+                    $("#search").on("input",function () {
+                       $search=$("#search").val();
+                       if ($search.length>0){
+                           $.get("../call_ajax.php",{"search":$search},function ($data) {
+                               $("#result").html($data);
+
+                           })
+                       }
+                    });
+                </script>
+                <button class="btn blue-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit" >Search</button>
+
             </form>
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item" style="padding-right: 10px">
-                    <a class="nav-link waves-effect">
-                        <span class="badge red z-depth-1 mr-1"> 1 </span>
+                    <a class="nav-link waves-effect" href="<?=URL?>/hw8/site/checkout">
+                        <span class="badge red z-depth-1 mr-1"> <?php $num=Session::getSession('qty');echo $num;?> </span>
                         <i class="fa fa-shopping-cart"></i>
                         <span class="clearfix d-none d-sm-inline-block"> Cart </span>
                     </a>

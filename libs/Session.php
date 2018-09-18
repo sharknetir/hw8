@@ -9,8 +9,16 @@ Class Session {
          $_SESSION[$name]=$param; 
     }
 
+    public static function setSession_cart($name,$id,$param){
+        $_SESSION[$name][$id]=$param;
+    }
+
     public static function getSession($name){
         return $_SESSION[$name];
+    }
+
+    public static function getSession_cart($name,$id,$param){
+        return $_SESSION[$name][$id];
     }
 
     public static function sessionDeath(){

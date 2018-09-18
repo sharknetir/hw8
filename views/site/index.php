@@ -214,11 +214,11 @@
                         <div class="card-body text-center">
                             <!--Category & Title-->
                             <a href="" class="grey-text">
-                                <h5>Mobile</h5>
+                                <h5><?=$item['category'] ?></h5>
                             </a>
                             <h5>
                                 <strong>
-                                    <a href="" class="dark-grey-text"><?=$item['name'] ?>
+                                    <a href="./products/<?=$item['product_id'] ?>" class="dark-grey-text"><?=$item['name'] ?>
                                         <span class="badge badge-pill danger-color">NEW</span>
                                     </a>
                                 </strong>

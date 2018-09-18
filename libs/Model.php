@@ -67,4 +67,16 @@ class Model{
         }
 
     }
+
+    public function search($table,$char){
+        $con=$this->con;
+        $sql="select * from $table where name like '%".$char."%'";
+        $stm=$con->prepare($sql);
+        $stm->execute();
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+
+        return $stm->fetchAll();
+
+
+    }
 }
